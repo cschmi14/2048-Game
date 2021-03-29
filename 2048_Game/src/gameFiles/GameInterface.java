@@ -158,37 +158,53 @@ public class GameInterface implements ActionListener {
 							for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
 								if (b1.returnBoardState()[i][j] != 0) {
 									b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
-									if (b1.returnBoardState()[i][j] == 2 || b1.returnBoardState()[i][j] == 4) {
+									switch (b1.returnBoardState()[i][j]) {
+									case (2):{
 										b[i][j].setForeground(Color.black);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 8) {
+									case (4):{
+										b[i][j].setForeground(Color.black);
+										break;
+									}
+									case (8):{
 										b[i][j].setForeground(Color.red);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 16) {
+									case (16):{
 										b[i][j].setForeground(DarkOrange);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 32) {
+									case (32):{
 										b[i][j].setForeground(Gold);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 64) {
+									case (64):{
 										b[i][j].setForeground(DarkGreen);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 128) {
+									case (128):{
 										b[i][j].setForeground(Color.cyan);
+										break;	
 									}
-									else if (b1.returnBoardState()[i][j] == 256) {
+									case (256):{
 										b[i][j].setForeground(Color.blue);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 512) {
+									case (512):{
 										b[i][j].setForeground(Color.magenta);
+										break;	
 									}
-									else if (b1.returnBoardState()[i][j] == 1024) {
+									case (1024):{
 										b[i][j].setForeground(Purple);
+										break;	
 									}
-									else if (b1.returnBoardState()[i][j] == 2048) {
+									case (2048):{
 										b[i][j].setForeground(Color.pink);
 										win.setVisible(true);
+										break;
 									}	
+									}
 								}
 								else {
 									b[i][j].setText("");
@@ -202,37 +218,53 @@ public class GameInterface implements ActionListener {
 						for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
 							if (b1.returnBoardState()[i][j] != 0) {
 								b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
-								if (b1.returnBoardState()[i][j] == 2 || b1.returnBoardState()[i][j] == 4) {
+								switch (b1.returnBoardState()[i][j]) {
+								case (2):{
 									b[i][j].setForeground(Color.black);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 8) {
+								case (4):{
+									b[i][j].setForeground(Color.black);
+									break;
+								}
+								case (8):{
 									b[i][j].setForeground(Color.red);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 16) {
+								case (16):{
 									b[i][j].setForeground(DarkOrange);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 32) {
+								case (32):{
 									b[i][j].setForeground(Gold);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 64) {
+								case (64):{
 									b[i][j].setForeground(DarkGreen);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 128) {
+								case (128):{
 									b[i][j].setForeground(Color.cyan);
+									break;	
 								}
-								else if (b1.returnBoardState()[i][j] == 256) {
+								case (256):{
 									b[i][j].setForeground(Color.blue);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 512) {
+								case (512):{
 									b[i][j].setForeground(Color.magenta);
+									break;	
 								}
-								else if (b1.returnBoardState()[i][j] == 1024) {
+								case (1024):{
 									b[i][j].setForeground(Purple);
+									break;	
 								}
-								else if (b1.returnBoardState()[i][j] == 2048) {
+								case (2048):{
 									b[i][j].setForeground(Color.pink);
 									win.setVisible(true);
+									break;
 								}	
+								}
 							}
 							else {
 								b[i][j].setText("");
@@ -248,36 +280,52 @@ public class GameInterface implements ActionListener {
 							for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
 								if (b1.returnBoardState()[i][j] != 0) {
 									b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
-									if (b1.returnBoardState()[i][j] == 2 || b1.returnBoardState()[i][j] == 4) {
+									switch (b1.returnBoardState()[i][j]) {
+									case (2):{
 										b[i][j].setForeground(Color.black);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 8) {
+									case (4):{
+										b[i][j].setForeground(Color.black);
+										break;
+									}
+									case (8):{
 										b[i][j].setForeground(Color.red);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 16) {
+									case (16):{
 										b[i][j].setForeground(DarkOrange);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 32) {
+									case (32):{
 										b[i][j].setForeground(Gold);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 64) {
+									case (64):{
 										b[i][j].setForeground(DarkGreen);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 128) {
+									case (128):{
 										b[i][j].setForeground(Color.cyan);
+										break;	
 									}
-									else if (b1.returnBoardState()[i][j] == 256) {
+									case (256):{
 										b[i][j].setForeground(Color.blue);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 512) {
+									case (512):{
 										b[i][j].setForeground(Color.magenta);
+										break;	
 									}
-									else if (b1.returnBoardState()[i][j] == 1024) {
+									case (1024):{
 										b[i][j].setForeground(Purple);
+										break;	
 									}
-									else if (b1.returnBoardState()[i][j] == 2048) {
+									case (2048):{
 										b[i][j].setForeground(Color.pink);
 										win.setVisible(true);
+										break;
+									}	
 									}	
 								}
 								else {
@@ -292,37 +340,53 @@ public class GameInterface implements ActionListener {
 						for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
 							if (b1.returnBoardState()[i][j] != 0) {
 								b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
-								if (b1.returnBoardState()[i][j] == 2 || b1.returnBoardState()[i][j] == 4) {
+								switch (b1.returnBoardState()[i][j]) {
+								case (2):{
 									b[i][j].setForeground(Color.black);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 8) {
+								case (4):{
+									b[i][j].setForeground(Color.black);
+									break;
+								}
+								case (8):{
 									b[i][j].setForeground(Color.red);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 16) {
+								case (16):{
 									b[i][j].setForeground(DarkOrange);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 32) {
+								case (32):{
 									b[i][j].setForeground(Gold);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 64) {
+								case (64):{
 									b[i][j].setForeground(DarkGreen);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 128) {
+								case (128):{
 									b[i][j].setForeground(Color.cyan);
+									break;	
 								}
-								else if (b1.returnBoardState()[i][j] == 256) {
+								case (256):{
 									b[i][j].setForeground(Color.blue);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 512) {
+								case (512):{
 									b[i][j].setForeground(Color.magenta);
+									break;	
 								}
-								else if (b1.returnBoardState()[i][j] == 1024) {
+								case (1024):{
 									b[i][j].setForeground(Purple);
+									break;	
 								}
-								else if (b1.returnBoardState()[i][j] == 2048) {
+								case (2048):{
 									b[i][j].setForeground(Color.pink);
 									win.setVisible(true);
+									break;
 								}	
+								}
 							}
 							else {
 								b[i][j].setText("");
@@ -338,36 +402,52 @@ public class GameInterface implements ActionListener {
 							for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
 								if (b1.returnBoardState()[i][j] != 0) {
 									b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
-									if (b1.returnBoardState()[i][j] == 2 || b1.returnBoardState()[i][j] == 4) {
+									switch (b1.returnBoardState()[i][j]) {
+									case (2):{
 										b[i][j].setForeground(Color.black);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 8) {
+									case (4):{
+										b[i][j].setForeground(Color.black);
+										break;
+									}
+									case (8):{
 										b[i][j].setForeground(Color.red);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 16) {
+									case (16):{
 										b[i][j].setForeground(DarkOrange);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 32) {
+									case (32):{
 										b[i][j].setForeground(Gold);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 64) {
+									case (64):{
 										b[i][j].setForeground(DarkGreen);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 128) {
+									case (128):{
 										b[i][j].setForeground(Color.cyan);
+										break;	
 									}
-									else if (b1.returnBoardState()[i][j] == 256) {
+									case (256):{
 										b[i][j].setForeground(Color.blue);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 512) {
+									case (512):{
 										b[i][j].setForeground(Color.magenta);
+										break;	
 									}
-									else if (b1.returnBoardState()[i][j] == 1024) {
+									case (1024):{
 										b[i][j].setForeground(Purple);
+										break;	
 									}
-									else if (b1.returnBoardState()[i][j] == 2048) {
+									case (2048):{
 										b[i][j].setForeground(Color.pink);
 										win.setVisible(true);
+										break;
+									}	
 									}	
 								}
 								else {
@@ -382,36 +462,52 @@ public class GameInterface implements ActionListener {
 						for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
 							if (b1.returnBoardState()[i][j] != 0) {
 								b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
-								if (b1.returnBoardState()[i][j] == 2 || b1.returnBoardState()[i][j] == 4) {
+								switch (b1.returnBoardState()[i][j]) {
+								case (2):{
 									b[i][j].setForeground(Color.black);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 8) {
+								case (4):{
+									b[i][j].setForeground(Color.black);
+									break;
+								}
+								case (8):{
 									b[i][j].setForeground(Color.red);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 16) {
+								case (16):{
 									b[i][j].setForeground(DarkOrange);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 32) {
+								case (32):{
 									b[i][j].setForeground(Gold);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 64) {
+								case (64):{
 									b[i][j].setForeground(DarkGreen);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 128) {
+								case (128):{
 									b[i][j].setForeground(Color.cyan);
+									break;	
 								}
-								else if (b1.returnBoardState()[i][j] == 256) {
+								case (256):{
 									b[i][j].setForeground(Color.blue);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 512) {
+								case (512):{
 									b[i][j].setForeground(Color.magenta);
+									break;	
 								}
-								else if (b1.returnBoardState()[i][j] == 1024) {
+								case (1024):{
 									b[i][j].setForeground(Purple);
+									break;	
 								}
-								else if (b1.returnBoardState()[i][j] == 2048) {
+								case (2048):{
 									b[i][j].setForeground(Color.pink);
 									win.setVisible(true);
+									break;
+								}	
 								}	
 							}
 							else {
@@ -428,37 +524,53 @@ public class GameInterface implements ActionListener {
 							for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
 								if (b1.returnBoardState()[i][j] != 0) {
 									b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
-									if (b1.returnBoardState()[i][j] == 2 || b1.returnBoardState()[i][j] == 4) {
+									switch (b1.returnBoardState()[i][j]) {
+									case (2):{
 										b[i][j].setForeground(Color.black);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 8) {
+									case (4):{
+										b[i][j].setForeground(Color.black);
+										break;
+									}
+									case (8):{
 										b[i][j].setForeground(Color.red);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 16) {
+									case (16):{
 										b[i][j].setForeground(DarkOrange);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 32) {
+									case (32):{
 										b[i][j].setForeground(Gold);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 64) {
+									case (64):{
 										b[i][j].setForeground(DarkGreen);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 128) {
+									case (128):{
 										b[i][j].setForeground(Color.cyan);
+										break;	
 									}
-									else if (b1.returnBoardState()[i][j] == 256) {
+									case (256):{
 										b[i][j].setForeground(Color.blue);
+										break;
 									}
-									else if (b1.returnBoardState()[i][j] == 512) {
+									case (512):{
 										b[i][j].setForeground(Color.magenta);
+										break;	
 									}
-									else if (b1.returnBoardState()[i][j] == 1024) {
+									case (1024):{
 										b[i][j].setForeground(Purple);
+										break;	
 									}
-									else if (b1.returnBoardState()[i][j] == 2048) {
+									case (2048):{
 										b[i][j].setForeground(Color.pink);
 										win.setVisible(true);
+										break;
 									}	
+									}
 								}
 								else {
 									b[i][j].setText("");
@@ -472,38 +584,53 @@ public class GameInterface implements ActionListener {
 						for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
 							if (b1.returnBoardState()[i][j] != 0) {
 								b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
-								if (b1.returnBoardState()[i][j] == 2 || b1.returnBoardState()[i][j] == 4) {
+								switch (b1.returnBoardState()[i][j]) {
+								case (2):{
 									b[i][j].setForeground(Color.black);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 8) {
+								case (4):{
+									b[i][j].setForeground(Color.black);
+									break;
+								}
+								case (8):{
 									b[i][j].setForeground(Color.red);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 16) {
+								case (16):{
 									b[i][j].setForeground(DarkOrange);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 32) {
+								case (32):{
 									b[i][j].setForeground(Gold);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 64) {
+								case (64):{
 									b[i][j].setForeground(DarkGreen);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 128) {
+								case (128):{
 									b[i][j].setForeground(Color.cyan);
+									break;	
 								}
-								else if (b1.returnBoardState()[i][j] == 256) {
+								case (256):{
 									b[i][j].setForeground(Color.blue);
+									break;
 								}
-								else if (b1.returnBoardState()[i][j] == 512) {
+								case (512):{
 									b[i][j].setForeground(Color.magenta);
+									break;	
 								}
-								else if (b1.returnBoardState()[i][j] == 1024) {
+								case (1024):{
 									b[i][j].setForeground(Purple);
+									break;	
 								}
-								else if (b1.returnBoardState()[i][j] == 2048) {
+								case (2048):{
 									b[i][j].setForeground(Color.pink);
 									win.setVisible(true);
+									break;
 								}	
-							}
+								}}
 							else {
 								b[i][j].setText("");
 							}
