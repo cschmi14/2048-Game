@@ -47,6 +47,43 @@ public class Board {
 	public int[][] returnBoardState() {
 		return b;
 	}
+	
+	public void resetBoard() {
+		b = new int[4][4];
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				b[i][j] = 0;
+			}
+		}
+		int a = r.nextInt(4);
+		int c = r.nextInt(4);
+		int e = r.nextInt(2);
+		if (e == 1) {
+			b[a][c] = 2;
+		} 
+		else {
+			b[a][c] = 4;
+		}
+		e = r.nextInt(2);
+		int f = r.nextInt(4);
+		int g = r.nextInt(4);
+		boolean done = false;
+		while (!done) {
+			if (f == a && g == c) {
+				f = r.nextInt(4);
+				g = r.nextInt(4);
+				e = r.nextInt(2);
+			}
+			else if (e == 1) {
+				b[f][g] = 2;
+				done = true;
+			}
+			else {
+				b[f][g] = 4;
+				done = true;
+			}
+		}
+	}
 
 	public void randomNum() {
 		String[] coordinates = {"00","01","02","03","10","11","12","13","20","21","22","23","30","31","32","33",};
