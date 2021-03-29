@@ -22,6 +22,11 @@ public class GameInterface implements ActionListener {
 	protected Color DarkGreen = new Color(52,134,16);
 	protected Board b1 = new Board();
 	protected JFrame win = new JFrame();
+	protected JFrame lose = new JFrame();
+	protected JButton newGame = new JButton();
+	protected JButton playAgain = new JButton();
+	protected JButton keepPlaying = new JButton();
+	protected JButton playAgainLose = new JButton();
 	
 	public GameInterface() {
 		
@@ -49,10 +54,10 @@ public class GameInterface implements ActionListener {
 		title.setHorizontalAlignment(JLabel.CENTER);
 		panel.add(title, BorderLayout.NORTH);
 		
-		name.setText("Coded by Carter Schmidt");
+		name.setText("                          Coded by Carter Schmidt");
 		name.setForeground(Color.white);
 		name.setVerticalAlignment(JLabel.TOP);
-		name.setHorizontalAlignment(JLabel.CENTER);
+		name.setHorizontalAlignment(JLabel.LEFT);
 		panel.add(name, BorderLayout.CENTER);
 		
 		directions.setText("Use the Arrow Keys to move the board!");
@@ -62,22 +67,50 @@ public class GameInterface implements ActionListener {
 		
 		panel.add(directions, BorderLayout.SOUTH);
 		
+		newGame.setText("New Game");
+		newGame.setFocusable(false);
+		newGame.addActionListener(this);
+		
+		panel.add(newGame, BorderLayout.WEST);
+		
 		win.setLayout(null);
 		win.setSize(300,300);
 		win.setFocusable(true);
 		win.setResizable(false);
 		
+		lose.setLayout(null);
+		lose.setSize(300,300);
+		lose.setFocusable(true);
+		lose.setResizable(false);
+		
 		JLabel winMessage = new JLabel();
-		winMessage.setText("You Win! Hit the button to play again: ");
+		winMessage.setText("You Win! Play a new game or continue: ");
 		winMessage.setBounds(35,25,300,20);
 		
-		JButton playAgain = new JButton();
+		JLabel loseMessage = new JLabel();
+		loseMessage.setText("No valid moves left. Play a new game? ");
+		loseMessage.setBounds(35,25,300,20);
+		
+		playAgainLose.setBounds(60,115,150,50);
+		playAgainLose.setText("Play Again");
+		playAgainLose.setFocusable(false);
+		playAgainLose.addActionListener(this);
+		
 		playAgain.setBounds(60,115,150,50);
 		playAgain.setText("Play Again");
 		playAgain.setFocusable(false);
 		playAgain.addActionListener(this);
+		keepPlaying.setBounds(60,165,150,50);
+		keepPlaying.setText("Continue");
+		keepPlaying.setFocusable(false);
+		keepPlaying.addActionListener(this);
+		
+		lose.add(loseMessage);
+		lose.add(playAgainLose);
+		
 		win.add(winMessage);
 		win.add(playAgain);
+		win.add(keepPlaying);
 		
 		JPanel gamePanel = new JPanel(new GridLayout(4,4,1,1));
 		gamePanel.setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -115,12 +148,56 @@ public class GameInterface implements ActionListener {
 			}
 
 			@Override
-			public void keyPressed(KeyEvent e) {
+			public void keyPressed(KeyEvent e) throws IllegalArgumentException {
 				int keyCode = e.getKeyCode();
 				switch (keyCode) {
 				case KeyEvent.VK_UP: {
 					b1.moveUp();
-					b1.randomNum();
+					if (!b1.lose()) {
+						for (int i = 0; i < b1.returnBoardState().length; i++) {
+							for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
+								if (b1.returnBoardState()[i][j] != 0) {
+									b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
+									if (b1.returnBoardState()[i][j] == 2 || b1.returnBoardState()[i][j] == 4) {
+										b[i][j].setForeground(Color.black);
+									}
+									else if (b1.returnBoardState()[i][j] == 8) {
+										b[i][j].setForeground(Color.red);
+									}
+									else if (b1.returnBoardState()[i][j] == 16) {
+										b[i][j].setForeground(DarkOrange);
+									}
+									else if (b1.returnBoardState()[i][j] == 32) {
+										b[i][j].setForeground(Gold);
+									}
+									else if (b1.returnBoardState()[i][j] == 64) {
+										b[i][j].setForeground(DarkGreen);
+									}
+									else if (b1.returnBoardState()[i][j] == 128) {
+										b[i][j].setForeground(Color.cyan);
+									}
+									else if (b1.returnBoardState()[i][j] == 256) {
+										b[i][j].setForeground(Color.blue);
+									}
+									else if (b1.returnBoardState()[i][j] == 512) {
+										b[i][j].setForeground(Color.magenta);
+									}
+									else if (b1.returnBoardState()[i][j] == 1024) {
+										b[i][j].setForeground(Purple);
+									}
+									else if (b1.returnBoardState()[i][j] == 2048) {
+										b[i][j].setForeground(Color.pink);
+										win.setVisible(true);
+									}	
+								}
+								else {
+									b[i][j].setText("");
+								}
+							}
+						}
+						lose.setVisible(true);
+						break;
+					}
 					for (int i = 0; i < b1.returnBoardState().length; i++) {
 						for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
 							if (b1.returnBoardState()[i][j] != 0) {
@@ -166,7 +243,51 @@ public class GameInterface implements ActionListener {
 				}
 				case KeyEvent.VK_DOWN: {
 					b1.moveDown();
-					b1.randomNum();
+					if (!b1.lose()) {
+						for (int i = 0; i < b1.returnBoardState().length; i++) {
+							for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
+								if (b1.returnBoardState()[i][j] != 0) {
+									b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
+									if (b1.returnBoardState()[i][j] == 2 || b1.returnBoardState()[i][j] == 4) {
+										b[i][j].setForeground(Color.black);
+									}
+									else if (b1.returnBoardState()[i][j] == 8) {
+										b[i][j].setForeground(Color.red);
+									}
+									else if (b1.returnBoardState()[i][j] == 16) {
+										b[i][j].setForeground(DarkOrange);
+									}
+									else if (b1.returnBoardState()[i][j] == 32) {
+										b[i][j].setForeground(Gold);
+									}
+									else if (b1.returnBoardState()[i][j] == 64) {
+										b[i][j].setForeground(DarkGreen);
+									}
+									else if (b1.returnBoardState()[i][j] == 128) {
+										b[i][j].setForeground(Color.cyan);
+									}
+									else if (b1.returnBoardState()[i][j] == 256) {
+										b[i][j].setForeground(Color.blue);
+									}
+									else if (b1.returnBoardState()[i][j] == 512) {
+										b[i][j].setForeground(Color.magenta);
+									}
+									else if (b1.returnBoardState()[i][j] == 1024) {
+										b[i][j].setForeground(Purple);
+									}
+									else if (b1.returnBoardState()[i][j] == 2048) {
+										b[i][j].setForeground(Color.pink);
+										win.setVisible(true);
+									}	
+								}
+								else {
+									b[i][j].setText("");
+								}
+							}
+						}
+						lose.setVisible(true);
+						break;
+					}
 					for (int i = 0; i < b1.returnBoardState().length; i++) {
 						for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
 							if (b1.returnBoardState()[i][j] != 0) {
@@ -212,7 +333,51 @@ public class GameInterface implements ActionListener {
 				}
 				case KeyEvent.VK_LEFT: {
 					b1.moveLeft();
-					b1.randomNum();
+					if (!b1.lose()) {
+						for (int i = 0; i < b1.returnBoardState().length; i++) {
+							for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
+								if (b1.returnBoardState()[i][j] != 0) {
+									b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
+									if (b1.returnBoardState()[i][j] == 2 || b1.returnBoardState()[i][j] == 4) {
+										b[i][j].setForeground(Color.black);
+									}
+									else if (b1.returnBoardState()[i][j] == 8) {
+										b[i][j].setForeground(Color.red);
+									}
+									else if (b1.returnBoardState()[i][j] == 16) {
+										b[i][j].setForeground(DarkOrange);
+									}
+									else if (b1.returnBoardState()[i][j] == 32) {
+										b[i][j].setForeground(Gold);
+									}
+									else if (b1.returnBoardState()[i][j] == 64) {
+										b[i][j].setForeground(DarkGreen);
+									}
+									else if (b1.returnBoardState()[i][j] == 128) {
+										b[i][j].setForeground(Color.cyan);
+									}
+									else if (b1.returnBoardState()[i][j] == 256) {
+										b[i][j].setForeground(Color.blue);
+									}
+									else if (b1.returnBoardState()[i][j] == 512) {
+										b[i][j].setForeground(Color.magenta);
+									}
+									else if (b1.returnBoardState()[i][j] == 1024) {
+										b[i][j].setForeground(Purple);
+									}
+									else if (b1.returnBoardState()[i][j] == 2048) {
+										b[i][j].setForeground(Color.pink);
+										win.setVisible(true);
+									}	
+								}
+								else {
+									b[i][j].setText("");
+								}
+							}
+						}
+						lose.setVisible(true);
+						break;
+					}
 					for (int i = 0; i < b1.returnBoardState().length; i++) {
 						for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
 							if (b1.returnBoardState()[i][j] != 0) {
@@ -258,7 +423,51 @@ public class GameInterface implements ActionListener {
 				}
 				case KeyEvent.VK_RIGHT: {
 					b1.moveRight();
-					b1.randomNum();
+					if (!b1.lose()) {
+						for (int i = 0; i < b1.returnBoardState().length; i++) {
+							for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
+								if (b1.returnBoardState()[i][j] != 0) {
+									b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
+									if (b1.returnBoardState()[i][j] == 2 || b1.returnBoardState()[i][j] == 4) {
+										b[i][j].setForeground(Color.black);
+									}
+									else if (b1.returnBoardState()[i][j] == 8) {
+										b[i][j].setForeground(Color.red);
+									}
+									else if (b1.returnBoardState()[i][j] == 16) {
+										b[i][j].setForeground(DarkOrange);
+									}
+									else if (b1.returnBoardState()[i][j] == 32) {
+										b[i][j].setForeground(Gold);
+									}
+									else if (b1.returnBoardState()[i][j] == 64) {
+										b[i][j].setForeground(DarkGreen);
+									}
+									else if (b1.returnBoardState()[i][j] == 128) {
+										b[i][j].setForeground(Color.cyan);
+									}
+									else if (b1.returnBoardState()[i][j] == 256) {
+										b[i][j].setForeground(Color.blue);
+									}
+									else if (b1.returnBoardState()[i][j] == 512) {
+										b[i][j].setForeground(Color.magenta);
+									}
+									else if (b1.returnBoardState()[i][j] == 1024) {
+										b[i][j].setForeground(Purple);
+									}
+									else if (b1.returnBoardState()[i][j] == 2048) {
+										b[i][j].setForeground(Color.pink);
+										win.setVisible(true);
+									}	
+								}
+								else {
+									b[i][j].setText("");
+								}
+							}
+						}
+						lose.setVisible(true);
+						break;
+					}
 					for (int i = 0; i < b1.returnBoardState().length; i++) {
 						for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
 							if (b1.returnBoardState()[i][j] != 0) {
@@ -315,19 +524,53 @@ public class GameInterface implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		b1.resetBoard();
-		for (int i = 0; i < b1.returnBoardState().length; i++) {
-			for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
-				if (b1.returnBoardState()[i][j] != 0) {
-					b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
-					b[i][j].setForeground(Color.black);
+		if (e.getSource() == playAgain) {
+			b1.resetBoard();
+			for (int i = 0; i < b1.returnBoardState().length; i++) {
+				for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
+					if (b1.returnBoardState()[i][j] != 0) {
+						b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
+						b[i][j].setForeground(Color.black);
+					}
+					else {
+						b[i][j].setText("");
+					}
 				}
-				else {
-					b[i][j].setText("");
+			}
+			win.setVisible(false);
+		}
+		else if (e.getSource() == newGame) {
+			b1.resetBoard();
+			for (int i = 0; i < b1.returnBoardState().length; i++) {
+				for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
+					if (b1.returnBoardState()[i][j] != 0) {
+						b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
+						b[i][j].setForeground(Color.black);
+					}
+					else {
+						b[i][j].setText("");
+					}
 				}
 			}
 		}
-		win.setVisible(false);
+		else if (e.getSource() == keepPlaying) {
+			win.setVisible(false);
+		}
+		else if (e.getSource() == playAgainLose) {
+			b1.resetBoard();
+			for (int i = 0; i < b1.returnBoardState().length; i++) {
+				for (int j = 0; j < b1.returnBoardState()[i].length; j++) {
+					if (b1.returnBoardState()[i][j] != 0) {
+						b[i][j].setText(Integer.toString(b1.returnBoardState()[i][j]));
+						b[i][j].setForeground(Color.black);
+					}
+					else {
+						b[i][j].setText("");
+					}
+				}
+			}
+			lose.setVisible(false);
+		}
 	}
 	
 	
